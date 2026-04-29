@@ -1,44 +1,55 @@
-const apiKey = '644911e8072a4cabb1d13714241211'; // 여기에 WeatherAPI 키를 입력하세요.
+const links = [
+  {
+    title: "강의 자료",
+    description: "수업 참고 자료",
+    url: "https://dirt-reply-492.notion.site/34f74e0f600d80319e7cffee38274b34?source=copy_link",
+    label: "D",
+  },
+  // {
+  //   title: "실습 템플릿",
+  //   description: "프롬프트 및 자동화 실습 파일",
+  //   url: "https://example.com/practice-template",
+  //   label: "T",
+  // },
+  // {
+  //   title: "구글시트 자동화",
+  //   description: "데이터 정리 및 자동화 예제",
+  //   url: "https://example.com/google-sheet",
+  //   label: "S",
+  // },
+  // {
+  //   title: "API 실습",
+  //   description: "API 기본 개념과 호출 예제",
+  //   url: "https://example.com/api-practice",
+  //   label: "A",
+  // },
+  // {
+  //   title: "설문 제출",
+  //   description: "교육 만족도 및 피드백",
+  //   url: "https://example.com/survey",
+  //   label: "Q",
+  // },
+  // {
+  //   title: "추가 참고 링크",
+  //   description: "수업 후 살펴볼 생성형 AI 자료",
+  //   url: "https://example.com/references",
+  //   label: "R",
+  // },
+];
 
-// 엔터 키를 눌렀을 때 날씨 정보를 가져오는 기능 추가
-document.getElementById('city').addEventListener('keydown', function(event) {
-    if (event.key === 'Enter') {
-        const city = this.value;
-        if (city) {
-            getWeather(city);
-        } else {
-            alert('도시를 입력하세요.');
-        }
-    }
-});
+const linkGrid = document.querySelector("#linkGrid");
 
-function getWeather(city) {
-    const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&lang=ko`;
-    
-    fetch(url)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('날씨 정보를 가져오는 데 실패했습니다.');
-            }
-            return response.json();
-        })
-        .then(data => {
-            displayWeather(data);
-        })
-        .catch(error => {
-            document.getElementById('weatherInfo').innerText = error.message;
-        });
-}
-
-function displayWeather(data) {
-    const weatherInfo = `
-        <h2>${data.location.name}, ${data.location.region}의 날씨</h2>
-        <p>현재 온도: ${data.current.temp_c}°C</p>
-        <p>상태: ${data.current.condition.text}</p>
-        <p>습도: ${data.current.humidity}%</p>
-        <p>바람 속도: ${data.current.wind_kph} km/h</p>
-        <p>기압: ${data.current.pressure_mb} hPa</p>
-        <img src="${data.current.condition.icon}" alt="${data.current.condition.text}">
-    `;
-    document.getElementById('weatherInfo').innerHTML = weatherInfo;
-}
+linkGrid.innerHTML = links
+  .map(
+    (link) => `
+      <a class="link-card" href="${link.url}" target="_blank" rel="noopener noreferrer">
+        <span class="link-icon">${link.label}</span>
+        <span>
+          <span class="link-title">${link.title}</span>
+          <span class="link-desc">${link.description}</span>
+        </span>
+        <span class="link-arrow" aria-hidden="true">›</span>
+      </a>
+    `,
+  )
+  .join("");

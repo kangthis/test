@@ -1,17 +1,59 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>강의내용</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <h1>강의내용</h1>
-        <a href="https://dirt-reply-492.notion.site/00-1b474e0f600d808eacd4de0256845edc?pvs=4">1. AI강의</a>
-        <div id="weatherInfo"></div>
-    </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>생성형 AI 강의 링크 허브</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Generative AI Workshop</p>
+          <h1 id="page-title">생성형 AI를 활용한 프로세스 구축 및 자동화 실습</h1>
+          <p class="lead">
+            강의 자료, 실습 템플릿, 설문 링크를 한 곳에서 바로 전달하기 위한 링크
+          </p>
+        </div>
+
+        <div class="ai-visual" aria-hidden="true">
+          <div class="chip">
+            <span>AI</span>
+          </div>
+          <div class="ai-mark">AI</div>
+        </div>
+      </section>
+
+      <section class="goal-panel" aria-labelledby="goal-title">
+        <h2 id="goal-title">교육 목표</h2>
+        <p>
+          챗GPT 등 생성형 AI를 활용해 연구 기획, 데이터 분석, 문서 자동화까지 수행하는 실무형
+          기초 역량을 강화합니다.
+        </p>
+      </section>
+
+      <section class="links-panel" aria-labelledby="links-title">
+        <div class="section-heading">
+          <h2 id="links-title">강의 링크</h2>
+          <p>필요한 항목을 선택하면 새 창으로 열립니다.</p>
+        </div>
+
+        <div class="link-grid" id="linkGrid"></div>
+      </section>
+
+      <section class="content-panel" aria-labelledby="content-title">
+        <h2 id="content-title">교육 내용</h2>
+        <ul>
+          <li>생성형 AI 기본 개념 및 활용 방법</li>
+          <li>프롬프트 구조화 개념 및 실습</li>
+          <li>다양한 생성형 AI 툴에 대한 이해</li>
+          <li>API 기초 개념 및 활용 방법</li>
+          <li>구글시트를 통한 자동화 개념 및 실습</li>
+        </ul>
+      </section>
+    </main>
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
