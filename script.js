@@ -5,6 +5,13 @@ const links = [
     url: "https://dirt-reply-492.notion.site/34f74e0f600d80319e7cffee38274b34?source=copy_link",
     label: "D",
   },
+  {
+    title: "교재자료 다운로드",
+    description: "수업 교재 ZIP 파일",
+    url: "교재자료.zip",
+    label: "↓",
+    download: true,
+  },
   // {
   //   title: "실습 템플릿",
   //   description: "프롬프트 및 자동화 실습 파일",
@@ -42,7 +49,9 @@ const linkGrid = document.querySelector("#linkGrid");
 linkGrid.innerHTML = links
   .map(
     (link) => `
-      <a class="link-card" href="${link.url}" target="_blank" rel="noopener noreferrer">
+      <a class="link-card" href="${link.url}" ${
+        link.download ? "download" : 'target="_blank" rel="noopener noreferrer"'
+      }>
         <span class="link-icon">${link.label}</span>
         <span>
           <span class="link-title">${link.title}</span>
